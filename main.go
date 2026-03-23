@@ -2,22 +2,42 @@ package main
 
 import (
 	"flag"
+	"fmt"
 )
 
 func main() {
-	destroy := flag.Bool("destroy", false, "Destroy all virtual environments.")
+	debugFlag := flag.Bool("debug", false, "Debug mode, .")
 
-	check := flag.Bool("check", false, "Check if any virtual environment exists.")
+	destroyFlag := flag.Bool("destroy", false, "Destroy all virtual environments.")
+	checkFlag := flag.Bool("check", false, "Check if any virtual environment exists.")
 
 	flag.Parse()
 
-	if *destroy {
-		destroyVirtualEnvironment()
+	// Debug Mode
+	if *debugFlag {
+		if *destroyFlag {
+			destroyVenvDebug()
+			return
+		}
+		if *checkFlag {
+			err := checkVenvDebug()
+			if err != nil {
+				fmt.Println("Check Virtual Environment Debug Error: ", err)
+			}
+			return
+		}
+		introduceDebug()
+		return
 	}
-	if *check {
-		checkVirtualEnvironment()
+
+	// Default Mode
+	if *destroyFlag {
+		destroyVenv()
+		return
 	}
-	if !*destroy && !*check {
-		introduce()
+	if *checkFlag {
+		checkVenv()
+		return
 	}
+	introduce()
 }
