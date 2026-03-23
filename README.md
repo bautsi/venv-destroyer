@@ -37,6 +37,28 @@ go build -o .
 ./venv-destroyer.exe
 ```
 
+## Formatting and Linting
+
+We use [golangci-lint](https://golangci-lint.run/) to format and lint the code.
+
+To format the code, run the following command:
+
+```bash
+golangci-lint fmt
+```
+
+To lint the code, run the following command:
+
+```bash
+golangci-lint run
+```
+
+To run both formatting and linting, run the following command:
+
+```bash
+golangci-lint fmt && golangci-lint run
+```
+
 ## Usage
 
 ```bash
