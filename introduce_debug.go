@@ -11,7 +11,7 @@ func introduceDebug() {
 
 	_, _ = fmt.Fprintln(w, "Please use debug flag with other flags.")
 	_, _ = fmt.Fprintln(w, "Usage:")
-	_, _ = fmt.Fprintln(w, "\t-check -debug")
+	_, _ = fmt.Fprintln(w, "\t-[any-flag] -debug")
 
 	_ = w.Flush()
 }
