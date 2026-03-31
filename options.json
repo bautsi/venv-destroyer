@@ -1,0 +1,5 @@
+{
+  "venv": ["venv", ".venv", "node_modules"],
+  "env": ["prod.env", ".env"],
+  "cache": ["__pycache__", ".cache", ".pytest_cache"]
+}
